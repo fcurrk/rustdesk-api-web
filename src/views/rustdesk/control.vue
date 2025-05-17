@@ -136,6 +136,8 @@
 
   const activeName = ref('Simple')
 
+  const userStore = useUserStore()
+  const user = userStore
   const appStore = useAppStore()
   const setting = computed(() => appStore.setting)
 
