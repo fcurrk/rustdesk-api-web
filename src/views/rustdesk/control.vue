@@ -120,9 +120,11 @@
 
 
 <script setup>
+  import { defineComponent, computed } from 'vue'
   import { create, list, remove, sendCmd, update } from '@/api/rustdesk'
   import { onMounted, reactive, ref } from 'vue'
   import { T } from '@/utils/i18n'
+  import { useAppStore } from '@/store/app'
   import { ElMessage, ElMessageBox } from 'element-plus'
   import { ID_TARGET, RELAY_TARGET } from '@/views/rustdesk/options'
   import blocklist from '@/views/rustdesk/blocklist.vue'
@@ -131,7 +133,24 @@
   import RelayServers from '@/views/rustdesk/relay_servers.vue'
   import mustLogin from '@/views/rustdesk/must_login.vue'
   import usage from '@/views/rustdesk/usage.vue'
+  import GTags from '@/layout/components/tags/index.vue'
+  
+  export default defineComponent({
+    name: 'getSettingver',
+    created () {
+    },
+    components: { Setting, GTags },
+    watch: {},
+    setup (props) {
+      const appStore = useAppStore()
+      const setting = computed(() => appStore.setting)
+      return {
+        setting,
+      }
+    },
 
+  })
+  
   const activeName = ref('Simple')
 
   const canSendIdServerCmd = ref(false)
