@@ -138,7 +138,7 @@
 
   const userStore = useUserStore()
   const appStore = useAppStore()
-  const version = computed(() => appStore.setting.version)
+
 
   const canSendIdServerCmd = ref(false)
   const checkCanSendIdServerCmd = async () => {
@@ -287,7 +287,8 @@
       ElMessage.success(T('OperationSuccess'))
     })
   }
-
+  
+  const version = computed(() => appStore.setting.version)
 </script>
 
 <style scoped lang="scss">
