@@ -64,7 +64,7 @@ export const useAppStore = defineStore({
       console.log('getAdminConfig')
       return admin().then(res => {
         this.replaceAdminTitle(res.data.title)
-        this.replaceAdminVer(res.data.version)
+        this.replaceAdminVersion(res.data.version)
         this.setting.hello = res.data.hello
       })
     },
@@ -72,7 +72,7 @@ export const useAppStore = defineStore({
       document.title = document.title.replace(`- ${this.setting.title}`, `- ${newTitle}`)
       this.setting.title = newTitle
     },
-    replaceAdminVer(newVersion){
+    replaceAdminVersion(newVersion){
       document.version = document.version.replace(`- ${this.setting.version}`, `- ${newVersion}`)
       this.setting.version = newVersion
     },
