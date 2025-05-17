@@ -120,7 +120,7 @@
 
 
 <script setup>
-  import { defineComponent, computed } from 'vue'
+  import { computed } from 'vue'
   import { create, list, remove, sendCmd, update } from '@/api/rustdesk'
   import { onMounted, reactive, ref } from 'vue'
   import { T } from '@/utils/i18n'
@@ -133,31 +133,18 @@
   import RelayServers from '@/views/rustdesk/relay_servers.vue'
   import mustLogin from '@/views/rustdesk/must_login.vue'
   import usage from '@/views/rustdesk/usage.vue'
-  import GTags from '@/layout/components/tags/index.vue'
-  import HeaderMenu from '@/layout/components/menu/index.vue'
-  import Setting from '@/layout/components/setting/index.vue'
 
-  export default defineComponent({
-    name: 'LayerHeader',
-    created () {
-    },
-    components: { HeaderMenu, Setting, GTags },
-    watch: {},
-    setup (props) {
-      const appStore = useAppStore()
-      const setting = computed(() => appStore.setting)
-      const expandOrFoldSlider = () => {
-        appStore.sideCollapse()
-      }
-      return {
-        setting,
-        expandOrFoldSlider,
-      }
-    },
-
-  })
-  
   const activeName = ref('Simple')
+  
+export default {
+  setup() {
+    const appStore = useAppStore()
+    const setting = computed(() => appStore.setting)
+    return {
+      setting,
+    }
+  },
+}
 
   const canSendIdServerCmd = ref(false)
   const checkCanSendIdServerCmd = async () => {
