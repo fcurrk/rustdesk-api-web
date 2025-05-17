@@ -121,7 +121,7 @@
 
 <script setup>
   import { useAppStore } from '@/store/app'
-  import { create, list, remove, sendCmd, update } from '@/api/rustdesk'
+  import { computed, create, list, remove, sendCmd, update } from '@/api/rustdesk'
   import { onMounted, reactive, ref } from 'vue'
   import { T } from '@/utils/i18n'
   import { ElMessage, ElMessageBox } from 'element-plus'
