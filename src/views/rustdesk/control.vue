@@ -2,6 +2,10 @@
   <div>
     <h4 v-html="T('ServerCmdTips', {wiki: '<a target=\'_blank\' href=\'https://github.com/fcurrk/rustdesk-api/wiki/Rustdesk-Command\'>WIKI</a>'})"></h4>
     <h5>
+      <span>{{ T('Version') }}: </span>
+      <el-tag type="text">{{setting.version}}</el-tag>
+    </h5>
+    <h5>
       <span>ID {{ T('Status') }}: </span>
       <el-tag v-if="canSendIdServerCmd" type="success">{{ T('Available') }}</el-tag>
       <el-tag v-else type="danger">{{ T('NotAvailable') }}</el-tag>
