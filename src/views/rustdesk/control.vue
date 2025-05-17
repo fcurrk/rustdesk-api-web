@@ -3,7 +3,7 @@
     <h4 v-html="T('ServerCmdTips', {wiki: '<a target=\'_blank\' href=\'https://github.com/fcurrk/rustdesk-api/wiki/Rustdesk-Command\'>WIKI</a>'})"></h4>
     <h5>
       <span>{{ T('Version') }}: </span>
-      <el-tag type="text">{{setting.version}}</el-tag>
+      <div v-html="version"></div>
     </h5>
     <h5>
       <span>ID {{ T('Status') }}: </span>
@@ -137,9 +137,8 @@
   const activeName = ref('Simple')
 
   const userStore = useUserStore()
-  const user = userStore
   const appStore = useAppStore()
-  const setting = computed(() => appStore.setting)
+  const version = computed(() => appStore.setting.version)
 
   const canSendIdServerCmd = ref(false)
   const checkCanSendIdServerCmd = async () => {
