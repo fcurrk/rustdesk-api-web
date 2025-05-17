@@ -134,18 +134,24 @@
   import mustLogin from '@/views/rustdesk/must_login.vue'
   import usage from '@/views/rustdesk/usage.vue'
   import GTags from '@/layout/components/tags/index.vue'
-  
+  import HeaderMenu from '@/layout/components/menu/index.vue'
+  import Setting from '@/layout/components/setting/index.vue'
+
   export default defineComponent({
-    name: 'getSettingver',
+    name: 'LayerHeader',
     created () {
     },
-    components: { Setting, GTags },
+    components: { HeaderMenu, Setting, GTags },
     watch: {},
     setup (props) {
       const appStore = useAppStore()
       const setting = computed(() => appStore.setting)
+      const expandOrFoldSlider = () => {
+        appStore.sideCollapse()
+      }
       return {
         setting,
+        expandOrFoldSlider,
       }
     },
 
