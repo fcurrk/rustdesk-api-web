@@ -24,7 +24,7 @@ export const useAppStore = defineStore({
   state: () => ({
     setting: {
       title: 'Rustdesk API Admin',
-      version: '',
+      version: 'v2.16',
       hello: '',
       sideIsCollapse: false,
       logo,
