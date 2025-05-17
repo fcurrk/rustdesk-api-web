@@ -120,11 +120,10 @@
 
 
 <script setup>
-  import { computed } from 'vue'
+  import { useAppStore } from '@/store/app'
   import { create, list, remove, sendCmd, update } from '@/api/rustdesk'
   import { onMounted, reactive, ref } from 'vue'
   import { T } from '@/utils/i18n'
-  import { useAppStore } from '@/store/app'
   import { ElMessage, ElMessageBox } from 'element-plus'
   import { ID_TARGET, RELAY_TARGET } from '@/views/rustdesk/options'
   import blocklist from '@/views/rustdesk/blocklist.vue'
@@ -135,16 +134,9 @@
   import usage from '@/views/rustdesk/usage.vue'
 
   const activeName = ref('Simple')
-  
-export default {
-  setup() {
-    const appStore = useAppStore()
-    const setting = computed(() => appStore.setting)
-    return {
-      setting,
-    }
-  },
-}
+
+  const appStore = useAppStore()
+  const setting = computed(() => appStore.setting)
 
   const canSendIdServerCmd = ref(false)
   const checkCanSendIdServerCmd = async () => {
