@@ -121,6 +121,7 @@
 
 <script setup>
   import { useAppStore } from '@/store/app'
+  import { useUserStore } from '@/store/user'
   import { create, list, remove, sendCmd, update } from '@/api/rustdesk'
   import { computed, onMounted, reactive, ref } from 'vue'
   import { T } from '@/utils/i18n'
