@@ -5,7 +5,7 @@
   </el-icon>
   <div class="header-logo">
     <img :src="setting.logo" alt="" class="logo">
-    <div class="title">{{setting.title}} - {{setting.version}}</div>
+    <div class="title">{{setting.title}}</div>
   </div>
   <Setting></Setting>
 </template>
