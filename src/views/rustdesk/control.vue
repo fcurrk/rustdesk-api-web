@@ -3,7 +3,7 @@
     <h4 v-html="T('ServerCmdTips', {wiki: '<a target=\'_blank\' href=\'https://github.com/fcurrk/rustdesk-api/wiki/Rustdesk-Command\'>WIKI</a>'})"></h4>
     <h5>
       <span>{{ T('Version') }}: </span>
-      <div v-html="version"></div>
+      <el-tag type="text">{{ setting.version }}</el-tag>
     </h5>
     <h5>
       <span>ID {{ T('Status') }}: </span>
@@ -121,7 +121,6 @@
 
 <script setup>
   import { useAppStore } from '@/store/app'
-  import { useUserStore } from '@/store/user'
   import { create, list, remove, sendCmd, update } from '@/api/rustdesk'
   import { computed, onMounted, reactive, ref } from 'vue'
   import { T } from '@/utils/i18n'
@@ -136,10 +135,9 @@
 
   const activeName = ref('Simple')
 
-  const userStore = useUserStore()
   const appStore = useAppStore()
-
-
+  const setting = computed(() => appStore.setting)
+  
   const canSendIdServerCmd = ref(false)
   const checkCanSendIdServerCmd = async () => {
     const res = await sendCmd({ cmd: 'h', target: ID_TARGET }).catch(_ => false)
@@ -287,8 +285,6 @@
       ElMessage.success(T('OperationSuccess'))
     })
   }
-  
-  const version = computed(() => appStore.setting.version)
 </script>
 
 <style scoped lang="scss">
