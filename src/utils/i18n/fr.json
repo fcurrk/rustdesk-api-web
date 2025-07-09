@@ -532,7 +532,7 @@
   "You can reference export file": {
     "One": "Vous pouvez vous référer au fichier d'exportation"
   },
-  "Version": {
-    "One": "Version de l'API"
+  "Remark": {
+    "One": "Remarque"
   }
 }

@@ -532,8 +532,8 @@
   "You can reference export file": {
     "One": "Вы можете ссылаться на экспортируемый файл"
   },
-  "Version": {
-    "One": "Версия API"
+  "Remark": {
+    "One": "Примечание"
   }
 }
 
