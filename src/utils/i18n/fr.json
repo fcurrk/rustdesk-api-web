@@ -534,5 +534,9 @@
   },
   "Remark": {
     "One": "Remarque"
+  },
+  "Version": {
+    "One": "Version de l'API"
   }
 }
+

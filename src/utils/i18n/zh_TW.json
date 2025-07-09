@@ -541,5 +541,9 @@
   },
   "Remark": {
     "One": "備註"
+  },
+  "Version": {
+    "One": "API版本"
   }
 }
+
